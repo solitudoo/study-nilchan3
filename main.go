@@ -2,39 +2,17 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"study/http_server"
 )
 
 func main() {
-	val := os.Getenv("phone_number")
-	if val != "" {
-		fmt.Println("val:", val)
+	fmt.Println("HTTP server started")
+
+	err := http_server.StartHTTPServer()
+	if err != nil {
+		fmt.Println("HTTP server error:", err)
 	} else {
-		fmt.Println("")
+		fmt.Println("HTTP stopped")
 	}
-	//ctx := context.Background()
-	//conn, err := simple_connection.CreateConnection(ctx)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//if err = simple_sql.CreateTable(ctx, conn); err != nil {
-	//	panic(err)
-	//}
-	//tasks, err := simple_sql.SelectRows(ctx, conn)
-	//if err != nil {
-	//	panic(err)
-	//}
-	//for _, task := range tasks {
-	//	if task.ID == 3 {
-	//		task.Title = "Покормить кошку"
-	//		task.Completed = true
-	//		now := time.Now()
-	//		task.CompletedAt = &now
-	//
-	//		if err := simple_sql.UpdateTask(ctx, conn, task); err != nil {
-	//			panic(err)
-	//		}
-	//	}
-	//}
-	//fmt.Println("succeed")
+
 }
