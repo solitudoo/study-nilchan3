@@ -9,8 +9,7 @@ import (
 
 func SelectRows(ctx context.Context, conn *pgx.Conn) ([]TaskModel, error) {
 	sqlQuery := `
-	SELECT id, title, description, completed, created_at, completed_at 
-	FROM tasks
+	SELECT id, title, description, completed, created_at, completed_at FROM tasks
 	`
 
 	rows, err := conn.Query(ctx, sqlQuery)
